@@ -1,0 +1,125 @@
+html{
+
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+header{
+
+    text-decoration: none;
+    color: white;
+    background-color: #0060b1;
+    width: 125%;
+
+}
+
+img{
+
+    margin-left: 35%;
+
+}
+
+main{
+
+    margin: 5%;
+    color: black;
+    background-color: white;
+
+}
+
+footer{
+
+    text-decoration: none;
+    color: white;
+    background-color: #0060b1;
+    width: 125%;
+
+}
+
+#barra{
+
+    background-color: #ff9757;
+
+}
+
+#barra a{
+
+    text-decoration: none;
+    color: white;
+
+}
+
+#link{
+
+    text-decoration: none;
+    color: white;
+
+}
+
+#menu{
+
+    color: white;
+
+}
+
+#desc{
+
+    width: 80%;
+    height: 200px;
+
+}
+
+#valor{
+
+    width: 30%;
+
+}
+
+#nome{
+
+    width: 100%;
+
+}
+
+#dataEntrada{
+
+    width: 25%;
+
+}
+
+#tipo{
+
+    width: 30%;
+
+}
+
+#liveToast{
+
+    position: relative;
+    background-color: #ff9757;
+    color: white;
+    margin-top: 5%;
+
+}
+
+#liveToast .toast-header{
+
+    background-color: #0060b1;
+    color: white;
+
+}
+
+#laranja{
+
+    color: white;
+    background-color: #ff9757;
+
+}
+
+#azul{
+
+    color: white;
+    background-color: #06518f;
+
+}
+

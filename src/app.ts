@@ -3,7 +3,7 @@ import { router } from "./router";
 import { engine } from "express-handlebars";
 
 export class App {
-    
+
     public server: express.Application;
 
     // construtor
@@ -15,14 +15,18 @@ export class App {
 
     // configurações do servidor
     private middleware() {
-
+ 
         // configuração do handlebars
-        this.server.set('views', __dirname + '/views');
+        this.server.set('views', __dirname + '/app/views');
         this.server.engine('.hbs', engine({ defaultLayout: 'main', extname: '.hbs' }));
         this.server.set('view engine', '.hbs');
-
+     
         // linkagem dos diretorios static
-        this.server.use(express.static(__dirname + "/public"));
+        this.server.use('/bscss', express.static('./node_modules/bootstrap/dist/css'));
+        this.server.use('/bsjs', express.static('./node_modules/bootstrap/dist/js'));
+        this.server.use('/jquery', express.static('./node_modules/jquery/dist'));
+        this.server.use('/popperjs', express.static('./node_modules/@popperjs/core/dist/umd'));
+        this.server.use('/public', express.static(__dirname + "/app/public"));
 
         // configuração do bodyparse
         this.server.use(express.urlencoded({ extended: true }));

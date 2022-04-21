@@ -1,0 +1,63 @@
+<div id="liveToast" class="toast" role="danger" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header">
+    <strong class="me-auto">ERRO!</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
+  <div id="mensagem" class="toast-body">
+
+    {{receba.msg}}
+
+  </div>
+</div>
+
+<h1>Cadastro de Produtos</h1>
+
+<form class="row g-3" id="forms" action="/cadastrando" method="post">
+  <div class="col-md-6">
+    <label for="nome" class="form-label">Nome</label>
+    <input type="text" class="form-control" name="nome" id="nome">
+  </div>
+  <div class="col-md-6">
+    <label for="valor" class="form-label">Valor</label>
+    <input type="text" class="form-control" name="valor" id="valor">
+  </div>
+  <div class="col-md-7">
+    <label for="dataEntrada" class="form-label">Data Entrada</label>
+    <input type="date" class="form-control" name="dataEntrada" id="dataEntrada">
+  </div>
+  <div class="col-md-8">
+    <label for="url" class="form-label">URL da imagem</label>
+    <input type="text" class="form-control" name="url" id="url">
+  </div>
+  <div class="col-md-9">
+    <label for="tipo" class="form-label">Tipo</label>
+    <select id="tipo" class="form-select" name="tipo">
+      <option value="0" selected>...</option>
+      <option value="1">periférico</option>
+      <option value="2">placa de video</option>
+      <option value="3">placa mãe</option>
+      <option value="4">Procesador</option>
+      <option value="5">Memoria</option>
+      <option value="6">Armazenamento</option>
+      <option value="7">Gabinete</option>
+      <option value="8">Cooler</option>
+      <option value="9">Fonte</option>
+    </select>
+  </div>
+  <label for="desc">Descrição</label>
+  <div class="col-md-10">
+    <textarea name="desc" id="desc" cols="30" rows="10"></textarea>
+  </div>
+  <div class="col-md-12">
+    <button type="submit" class="btn btn-primary">Registrar</button>
+  </div>
+</form>
+
+<script src="/bsjs/bootstrap.min.js"></script>
+<script src="/public/js/msg.js"></script>
+
+{{#if receba.mostrar}}
+
+<script> erro() </script>
+
+{{/if}}
