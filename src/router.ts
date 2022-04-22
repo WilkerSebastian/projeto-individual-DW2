@@ -10,6 +10,8 @@ const router: Router = Router()
 
 router.get("/xablau.com/home", homeController.home);
 
+router.get("/xablau.com/home/comprando", homeController.comprando);
+
 router.get("/xablau.com/cadastro" , cadastroComtroller.cadastro);
 
 router.post("/cadastrando" , cadastroComtroller.realizarCadastro)
@@ -18,8 +20,8 @@ router.get("/xablau.com/listar" , listaComtroller.listagem)
 
 router.get("/deletar/:id" , deletarController.deletar)
 
-router.get("/xablau.com/alterar" , alterarController.alterar)
+router.get("/xablau.com/alterar/:id" , alterarController.alterar)
 
-router.post("/alterando" , alterarController.alteracao)
+router.post("/xablau.com/alterando/:id" , alterarController.alteracao)
 
 export { router };

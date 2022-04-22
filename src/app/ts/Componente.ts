@@ -1,6 +1,6 @@
 export class Componente implements InterComponente{
     
-    constructor(nome: string, dataEntrada: any, tipo: number, desc: string, valor: number, url: string){
+    constructor(nome: string, dataEntrada: any, tipo: string, desc: string, valor: number, url: string){
 
         this.nome = nome;
         this.dataEntrada = dataEntrada;
@@ -13,7 +13,7 @@ export class Componente implements InterComponente{
 
     nome: string;
     dataEntrada: any;
-    tipo: number;
+    tipo: string;
     desc: string;
     valor: number;
     url: string;
@@ -23,7 +23,7 @@ interface InterComponente {
 
     nome:string;
     dataEntrada:any;
-    tipo: number;
+    tipo: string;
     desc: string;
     valor: number;
     url: string;

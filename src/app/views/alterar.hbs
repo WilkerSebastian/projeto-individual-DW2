@@ -1,0 +1,59 @@
+<div id="liveToast" class="toast" role="danger" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header">
+    <strong class="me-auto">ERRO!</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
+  <div id="mensagem" class="toast-body">
+
+    {{receba.msg}}
+
+  </div>
+</div>
+
+<h1>Alteração de Produto</h1>
+
+<form class="row g-3" id="forms" action="/xablau.com/alterando/{{componente.id}}" method="post">
+  <div class="col-md-6">
+    <label for="nome" class="form-label">Nome</label>
+    <input type="text" class="form-control" name="nome" id="nome" value="{{componente.nome}}">
+  </div>
+  <div class="col-md-6">
+    <label for="valor" class="form-label">Valor</label>
+    <input type="text" class="form-control" name="valor" id="valor" value="{{componente.valor}}">
+  </div>
+  <div class="col-md-7">
+    <label for="dataEntrada" class="form-label">Data Entrada</label>
+    <input type="date" class="form-control" name="dataEntrada" id="dataEntrada" value="{{componente.dataEntrada}}">
+  </div>
+  <div class="col-md-8">
+    <label for="url" class="form-label">URL da imagem</label>
+    <input type="text" class="form-control" name="url" id="url" value="{{componente.url}}">
+  </div>
+  <div class="col-md-9">
+    <label for="tipo" class="form-label">Tipo</label>
+    <select id="tipo" class="form-select" name="tipo">
+        <option value="{{componente.tipo}}" selected>{{componente.tipo}}</option>
+        {{#each tipos}}
+
+            <option value="{{this}}">{{this}}</option>
+
+        {{/each}}
+    </select>
+  </div>
+  <label for="desc">Descrição</label>
+  <div class="col-md-10">
+    <textarea name="desc" id="desc" cols="30" rows="10">{{componente.desc}}</textarea>
+  </div>
+  <div class="col-md-12">
+    <button type="submit" class="btn btn-primary">Alterar</button>
+  </div>
+</form>
+
+<script src="/bsjs/bootstrap.min.js"></script>
+<script src="/public/js/msg.js"></script>
+
+{{#if receba.mostrar}}
+
+    <script> erro() </script>
+
+{{/if}}

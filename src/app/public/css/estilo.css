@@ -33,6 +33,27 @@ footer{
     color: white;
     background-color: #0060b1;
     width: 125%;
+    
+
+}
+
+footer a{
+
+    text-decoration: none;
+    color: white;
+
+}
+
+footer a:hover{
+
+    text-decoration: none;
+    color: white;
+
+}
+
+#textfooter{
+
+    margin-left: 2%;
 
 }
 
@@ -123,3 +144,14 @@ footer{
 
 }
 
+#spin span{
+
+    color: green;
+
+}
+
+#certo{
+
+    color: rgb(3, 201, 3);
+
+}

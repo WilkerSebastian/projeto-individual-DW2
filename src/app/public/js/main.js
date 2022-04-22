@@ -1,0 +1,1 @@
+console.log(`sou um console log de teste!`)

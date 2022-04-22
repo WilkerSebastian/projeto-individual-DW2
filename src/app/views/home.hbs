@@ -1,1 +1,37 @@
-<p id="hello"></p>
+<h1>Xablau!</h1>
+
+<p>
+
+    Fundado em 2022, o Xablau! foi um dos pioneiros no comércio eletrônico brasileiro e hoje é o maior e-commerce do segmento de tecnologia na América Latina. Desde sua criação, a empresa é formada por histórias e conquistas de um time obcecado por agilidade, qualidade de atendimento, velocidade de entrega e respeito pelo consumidor.
+
+Com preços imbatíveis e mais de 20 mil produtos em seu catálogo, o Xablau! está sempre à frente e traz em primeira mão os melhores lançamentos do mercado mundial. São mais de 8 milhões de pessoas atendidas e entregas realizadas em todas as regiões do país, totalizando mais de 5.000 cidades.
+
+O e-commerce é um dos sites mais acessados do país e lidera o ranking das lojas virtuais mais recomendadas pelos consumidores brasileiros, no segmento de tecnologia*, com os principais índices de avaliação e selos de qualidade da internet.
+
+Além do e-commerce, o Xablau! é um grande incentivador dos esportes eletrônicos, sendo responsável pela criação de uma das maiores equipes de League of Legends do Brasil, a Xablau! Esports, tetracampeã nacional e a primeira representante brasileira no Campeonato Mundial.
+
+*Referência: Comparativo CX Report, com 34 grandes lojas virtuais do Brasil, realizado por IBOPE CONECTA e IBOPE DTM.
+
+</p>
+
+<h2>Produtos</h2>
+
+
+{{#each listaComponentes}}
+    <div class="card-group">
+    <div class="card">
+        <img src="{{url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{nome}}</h5>
+            <p class="card-text">{{desc}}</p>
+            <a href="/xablau.com/home/comprando">Comprar R$ {{valor}}</a>
+        </div>
+    </div>
+
+{{else}}
+
+    <span>Ops! Parece que estamos sem produtos então fique com a zero two dançando</span>
+
+    <img src="/public/img/zerotwo.gif">    
+
+{{/each}}

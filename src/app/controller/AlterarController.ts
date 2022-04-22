@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 import { pool } from "../dao/Conexao"
 import { Componente } from "../ts/Componente";
+import {tipos} from "../ts/tipos";
+import { validar } from "../ts/validacao";
 
 const receba = {
 
@@ -15,12 +17,32 @@ class AlterarController {
 
         let { id } = req.params;
 
-        pool.query(`SELECT id, nome, "dataEntrada", tipo, "desc", valor, url
+        if (receba.msg.trim() != "") {
+
+            receba.mostrar = true
+      
+        }
+
+        pool.query(`SELECT id, nome, to_char("dataEntrada", 'YYYY-MM-DD') as "dataEntrada", tipo, "desc", valor, url
         FROM componentes
         WHERE id = ${id}`)
             .then((comp) => {
 
-                return res.render("alterar", { comp });
+                let componente = comp.rows[0]
+
+                let types: string[] = []
+
+                tipos.forEach(t => {
+
+                    if (t != componente.tipo) {
+
+                       types.push(t)
+
+                    }
+                    
+                });
+
+                return res.render("alterar", { componente  , tipos: types , receba});
 
             })
             .catch((err) => {
@@ -37,9 +59,18 @@ class AlterarController {
 
         let componente = new Componente(req.body.nome, req.body.dataEntrada, req.body.tipo, req.body.desc, req.body.valor, req.body.url)
 
-        pool.query(`UPDATE componentes
-	                nome=${componente.nome}, "dataEntrada"=${componente.dataEntrada}, tipo=${componente.tipo}, "desc"=${componente.desc}, valor=${componente.valor}, url=${componente.url}
-	                WHERE id = ${id}`)
+        receba.msg = validar(componente);
+
+        if (receba.msg == "validado") {
+
+            pool.query(`UPDATE componentes SET
+	                nome='${componente.nome}', 
+                    "dataEntrada"='${componente.dataEntrada}', 
+                    tipo='${componente.tipo}', 
+                    "desc"='${componente.desc}', 
+                    valor=${componente.valor}, 
+                    url='${componente.url}'
+	                WHERE id=${id}`)
             .then((ret) => {
 
                 res.redirect("/xablau.com/listar")
@@ -47,11 +78,17 @@ class AlterarController {
             })
             .catch((err) => {
 
-                console.log(err)
+                console.log("erro " + err)
 
-                res.redirect("/xablau.com/")
+                res.redirect("/xablau.com/alterar/" + id)
 
             })
+
+        } else {
+
+            res.redirect("/xablau.com/cadastro");
+
+        }
 
     }
 

@@ -18,10 +18,10 @@ export function validar(input: Componente): string {
         msg += " campo descrição vazio;"
 
     }
-    if (input.tipo < 1 || input.tipo > 9) {
+    if (input.tipo.trim() == "") {
 
         valido = false;
-        msg += " campo tipo invalido;"
+        msg += " campo tipo não selecionado;"
 
     }
     if (input.url == "") {

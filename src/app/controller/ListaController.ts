@@ -5,7 +5,7 @@ class ListaComtroller{
 
   public listagem(req:Request, res:Response) {
 
-    pool.query(`SELECT id, nome, "dataEntrada", tipo, "desc", valor, url
+    pool.query(`SELECT id, nome, to_char("dataEntrada", 'DD/MM/YYYY') as "dataEntrada", tipo, "desc", valor, url
                 FROM componentes ORDER BY ID ASC`)
     .then((array) => {
 
